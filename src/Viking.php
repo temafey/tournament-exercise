@@ -6,13 +6,13 @@ namespace Tournament;
 
 use Tournament\Weapon\WeaponFactory;
 
-class Swordsman extends Fighter
+class Viking extends Fighter
 {
-    protected int $initialHitPoints = 100;
+    protected int $initialHitPoints = 120;
 
     public function __construct(string $skill = null)
     {
-        $this->setWeapon(WeaponFactory::WEAPON_SWORD);
+        $this->setWeapon(WeaponFactory::WEAPON_AXE);
         parent::__construct($skill);
     }
 }

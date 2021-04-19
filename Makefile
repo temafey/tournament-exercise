@@ -2,7 +2,7 @@ $(shell (if [ ! -e .env ]; then cp default.env .env; fi))
 include .env
 export
 
-RUN_ARGS = $(filter-out $@,$(MAKECMDGOALS))roave-no-leaks
+RUN_ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
 
 .PHONY: build
@@ -56,7 +56,7 @@ tests-unit: ## Run unit-tests suite
 	docker-compose run --rm --no-deps php sh -lc 'vendor/bin/phpunit --configuration /app/phpunit.xml.dist'
 
 tests-integration: ## Run integration-tests suite
-	docker-compose run --rm --no-deps php sh -lc 'vendor/bin/phpunit --configuration /app/phpunit.func.xml'
+	docker-compose run --rm --no-deps php sh -lc 'vendor/bin/phpunit --configuration /app/phpunit.xml'
 
 .PHONY: infection
 infection: ## executes mutation framework infection
