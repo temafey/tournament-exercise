@@ -45,12 +45,12 @@ lint: ## checks syntax of PHP files
 
 .PHONY: coding-standards
 coding-standards: ## run check and validate code standards tests
-	docker-compose run --rm --no-deps php sh -lc './vendor/bin/ecs check src tests'
+	docker-compose run --rm --no-deps php sh -lc './vendor/bin/ecs check src test'
 #	docker-compose run --rm --no-deps php sh -lc './vendor/bin/phpmd src/ text phpmd.xml' #todo: uncomment when phpmd supports php8.0
 
 .PHONY: coding-standards-fixer
 coding-standards-fixer: ## run code standards fixer
-	docker-compose run --rm --no-deps php sh -lc './vendor/bin/ecs check src tests --fix'
+	docker-compose run --rm --no-deps php sh -lc './vendor/bin/ecs check src test --fix'
 
 tests-unit: ## Run unit-tests suite
 	docker-compose run --rm --no-deps php sh -lc 'vendor/bin/phpunit --configuration /app/phpunit.xml.dist'
